@@ -9,6 +9,8 @@ public class SettingsWindow extends JFrame {
 
     protected SettingsQuestion[] questions;
 
+    private int iota = 0;
+
     public SettingsWindow(String title, SettingsQuestion... questions) {
         this.questions = questions;
 
@@ -67,6 +69,12 @@ public class SettingsWindow extends JFrame {
 
     public void onConfirm() {
 
+    }
+
+    public int iota() {
+        int ret = iota;
+        iota++;
+        return ret;
     }
 
 }

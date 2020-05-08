@@ -36,13 +36,12 @@ public class FileManager {
                 int height = Integer.parseInt(row[1]);
                 boolean displayAsRect = Boolean.parseBoolean(row[2]);
                 boolean include = Boolean.parseBoolean(row[3]);
-                String pckg = row[4];
-                String name = row[5];
-                String imgPath = row[6];
+                String name = row[4];
+                String imgPath = row[5];
 
                 if (imgPath.equals("NULL")) imgPath = "";
 
-                obj = new GameObject(width, height, displayAsRect, include, pckg, name, imgPath);
+                obj = new GameObject(width, height, displayAsRect, include, name, imgPath);
 
                 GlobalSettings.initializedObjects.add(obj);
             }
@@ -63,7 +62,7 @@ public class FileManager {
 
             for (GameObject obj : GlobalSettings.initializedObjects) {
                 String toWrite = obj.width + ";" + obj.height + ";" + obj.displayAsRect + ";" + obj.includeWAndHInConstructor + ";" +
-                                 obj.pckg + ";" + obj.name + ";" + (obj.imgPath.equals("") ? "NULL" : obj.imgPath);
+                                 obj.name + ";" + (obj.imgPath.equals("") ? "NULL" : obj.imgPath);
                 contents.append(toWrite);
             }
             contents.print();
@@ -89,11 +88,11 @@ public class FileManager {
             for (int i = 0; i<fc.getArrayList().size(); i++) {
                 String[] parts = dh.getRow(i);
 
-                String pckg = parts[0];
+                String name = parts[0];
                 GameObject target = null;
 
                 for (var obj : GlobalSettings.initializedObjects) {
-                    if (obj.pckg.equals(pckg)) {
+                    if (obj.name.equals(name)) {
                         target = obj;
                     }
                 }
@@ -135,7 +134,7 @@ public class FileManager {
                 for (RoomObject ro : RoomSettings.roomObjects) {
                     contents.append(
 
-                            ro.gameObject.pckg + ";" +
+                            ro.gameObject.name + ";" +
                             ro.x + ";" +
                             ro.y + ";" +
                             (ro.gameObject.includeWAndHInConstructor

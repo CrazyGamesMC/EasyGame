@@ -13,18 +13,16 @@ public class GameObject {
     public boolean displayAsRect;
     public boolean includeWAndHInConstructor;
 
-    public String pckg;
     public String name;
     public String imgPath;
 
     public Image img;
 
-    public GameObject(int width, int height, boolean displayAsRect, boolean includeWAndHInConstructor, String pckg, String name, String imgPath) {
+    public GameObject(int width, int height, boolean displayAsRect, boolean includeWAndHInConstructor, String name, String imgPath) {
         this.width = width;
         this.height = height;
         this.displayAsRect = displayAsRect;
         this.includeWAndHInConstructor = includeWAndHInConstructor;
-        this.pckg = pckg;
         this.name = name;
         this.imgPath = imgPath;
 
